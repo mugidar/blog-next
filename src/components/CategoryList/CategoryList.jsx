@@ -23,7 +23,20 @@ const CategoryList = () => {
 				</Link>
 				<Link
 					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.style}`}
+					className={`${styles.category} ${styles.food}`}
+				>
+					<Image
+						className={styles.image}
+						src={'/food.png'}
+						width={32}
+						height={32}
+						alt="icon"
+					/>
+					Food
+				</Link>
+				<Link
+					href={'/blog?cat=style'}
+					className={`${styles.category} ${styles.culture}`}
 				>
 					<Image
 						className={styles.image}
@@ -53,7 +66,20 @@ const CategoryList = () => {
 				>
 					<Image
 						className={styles.image}
-						src={'/travel.png'}
+						src={'/fashion.png'}
+						width={32}
+						height={32}
+						alt="icon"
+					/>
+					Fashion
+				</Link>
+				<Link
+					href={'/blog?cat=style'}
+					className={`${styles.category} ${styles.style}`}
+				>
+					<Image
+						className={styles.image}
+						src={'/coding.png'}
 						width={32}
 						height={32}
 						alt="icon"

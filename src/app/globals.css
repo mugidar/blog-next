@@ -34,10 +34,10 @@ a {
 	background-color: var(--bg);
 	color: var(--textColor);
 }
+
 .wrapper {
 	max-width: 1536px;
 	margin: 0 auto;
-	background-color: var(--softBg);
 	padding: 0 80px;
 }
 
