@@ -1,0 +1,9 @@
+.content {
+    display: flex;
+}
+
+.title {
+    text-align: center;
+    width: 100%;
+    background-color: orange;
+}

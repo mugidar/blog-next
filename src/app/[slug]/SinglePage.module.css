@@ -1,0 +1,61 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	padding-top: 30px;
+}
+.shortInfo {
+	display: flex;
+}
+.textContent {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.mainContent {
+    padding-top: 50px;
+	display: flex;
+    gap: 40px;
+}
+.post {
+	flex: 3;
+	margin-top: 50px;
+	font-size: 18px;
+	text-align: justify;
+}
+.postText > p {
+	margin: 15px 0;
+}
+.title {
+	font-size: 42px;
+}
+.info {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.details {
+	display: flex;
+	flex-direction: column;
+}
+.authorImage {
+	border-radius: 100%;
+}
+.author {
+	color: var(--softTextColor);
+}
+.date {
+	color: var(--softTextColor);
+	font-size: 14px;
+}
+.imageWrapper {
+	overflow: hidden;
+	border-radius: 12px;
+	flex: 1;
+	height: 300px;
+	position: relative;
+}
+
+.imageWrapper > img {
+	object-fit: cover;
+}

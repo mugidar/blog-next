@@ -52,6 +52,9 @@
 }
 
 @media screen and (max-width: 1280px) {
+	.post {
+		border: 2px solid var(--textColor) !important;
+	}
 	.title {
 		font-size: 36px;
 	}

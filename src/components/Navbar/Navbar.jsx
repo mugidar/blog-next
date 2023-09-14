@@ -6,7 +6,6 @@ import AuthLinks from '../AuthLinks/AuthLinks'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
 const Navbar = () => {
-
 	return (
 		<div className={styles.container}>
 			<div className={styles.social}>
@@ -21,9 +20,15 @@ const Navbar = () => {
 			</div>
 			<div className={styles.links}>
 				<ThemeToggle />
-				<Link className={styles.link} href={'/'}>Homepage</Link>
-				<Link className={styles.link} href={'/contact'}>Contact</Link>
-				<Link className={styles.link} href={'/about'}>About</Link>
+				<Link className={styles.link} href={'/'}>
+					Homepage
+				</Link>
+				<Link className={styles.link} href={'/contact'}>
+					Contact
+				</Link>
+				<Link className={styles.link} href={'/about'}>
+					About
+				</Link>
 				<AuthLinks />
 			</div>
 		</div>

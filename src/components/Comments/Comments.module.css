@@ -1,0 +1,55 @@
+.control {
+	display: flex;
+    margin-top: 15px;
+}
+.textArea {
+	flex: 1;
+	resize: none;
+	border-right: 0;
+	padding-left: 10px;
+	padding-top: 5px;
+	outline: none;
+}
+.textArea::-webkit-scrollbar {
+	display: none;
+}
+.button {
+	background-color: var(--bg);
+	cursor: pointer;
+	padding: 0 20px;
+}
+.container {
+    margin-top: 50px;
+}
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+	margin-top: 20px;
+	
+}
+.comment {
+display: flex;
+flex-direction: column;
+}
+.image {
+    border-radius: 100%;
+}
+.user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.userInfo {
+    
+    display: flex;
+    flex-direction: column;
+}
+.username {
+}
+.date {
+    font-size: 14px;
+}
+.desc {
+    margin-top: 15px;
+}

@@ -10,8 +10,8 @@ const page = () => {
 			<Featured />
 			<CategoryList />
 			<div className={styles.container}>
-				<Menu />
 				<CardList />
+				<Menu />
 			</div>
 		</div>
 	)

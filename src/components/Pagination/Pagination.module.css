@@ -1,0 +1,14 @@
+.container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    color: var(--textColor);
+    cursor: pointer;
+    padding: 10px 30px;
+    background-color: rgb(255, 113, 113);
+    border: 0;
+    border-radius: 12px;
+}

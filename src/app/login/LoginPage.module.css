@@ -1,0 +1,47 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 60px;
+}
+
+.wrapper {
+	padding: 200px;
+	background-color: var(--softBg);
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+.socialButton {
+	padding: 20px;
+	border-radius: 5px;
+	border: 0;
+	color: var(--textColor);
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.socialButton:nth-child(1) {
+	background-color: rgb(255, 81, 0);
+}
+.socialButton:nth-child(2) {
+	background-color: gray;
+}
+.socialButton:nth-child(3) {
+	background-color: rgb(0, 102, 255);
+}
+
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 50px 100px;
+    }
+    
+}
+
+@media screen and (max-width: 640px) {
+    .wrapper {
+        padding: 20px 40px;
+    }
+    
+}

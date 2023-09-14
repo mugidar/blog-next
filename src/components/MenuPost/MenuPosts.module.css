@@ -1,0 +1,41 @@
+.container {
+	margin-top: 20px;
+	flex: 1;
+	gap: 5px;
+	display: flex;
+	flex-direction: column;
+
+}
+.post {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.image {
+    min-width: 60px; 
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.category {
+	width: max-content;
+	border-radius: 12px;
+	padding: 2px 10px;
+	color: var(--textColor);
+	background-color: rgba(111, 255, 171, 0.445);
+}
+.author {
+	color: var(--textColor);
+	font-size: 14px;
+}
+.date {
+	color: var(--softTextColor);
+	font-size: 14px;
+}
+
+.author::after {
+	content: '\2022';
+	margin: 0 5px;
+}

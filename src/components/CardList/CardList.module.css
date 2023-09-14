@@ -1,0 +1,12 @@
+.container {
+    flex: 3;
+}
+.title {
+    margin-bottom: 50px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

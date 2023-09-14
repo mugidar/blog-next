@@ -1,0 +1,26 @@
+.container {
+    flex: 1;
+}
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.subtitle {
+    font-size: 16px;
+    color: var(--softTextColor);
+}
+.editors {
+    margin-top: 50px;
+}
+
+.categories {
+    margin-top: 30px;
+}
+
+@media screen and (max-width:1280px) {
+    .container {
+        display: none;
+    }
+    
+}
