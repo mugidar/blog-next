@@ -1,47 +1,53 @@
 .container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 60px;
+	position: relative;
 }
-
-.wrapper {
-	padding: 200px;
-	background-color: var(--softBg);
-	display: flex;
-	flex-direction: column;
-	gap: 50px;
-}
-.socialButton {
-	padding: 20px;
-	border-radius: 5px;
+.publish {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 5px 15px;cursor: pointer;
+	border-radius: 8px;
+	background-color: rgba(114, 255, 126, 0.616);
 	border: 0;
 	color: var(--textColor);
-	font-weight: bold;
-	cursor: pointer;
 }
 
-.socialButton:nth-child(1) {
-	background-color: rgb(255, 81, 0);
+.editor {
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 700px;
 }
-.socialButton:nth-child(2) {
-	background-color: gray;
-}
-.socialButton:nth-child(3) {
-	background-color: rgb(0, 102, 255);
+.button,.addButton {	cursor: pointer;
+	min-width: 36px;
+	min-height: 36px;
+	border-radius: 100%;
+	background-color: transparent;
+	border: 1px solid var(--textColor);
 }
 
-
-@media screen and (max-width: 768px) {
-    .wrapper {
-        padding: 50px 100px;
-    }
-    
+.input {
+	padding: 5px;
+	border-radius: 12px;
+	border: 0;
+	margin-bottom: 10px;
 }
 
-@media screen and (max-width: 640px) {
-    .wrapper {
-        padding: 20px 40px;
-    }
-    
+.add {
+	display: flex;
+	gap: 5px;
+	
+}
+.buttons {
+	gap: 15px;
+	display: flex;
+}
+.textArea {
+	overflow-y: scroll;
+	width: 100%;
+	height: 100%;
+}
+.textArea::-webkit-scrollbar{
+	display: none;
 }

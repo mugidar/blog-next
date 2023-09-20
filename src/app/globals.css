@@ -6,6 +6,14 @@
 	--oppositeColor: black;
 }
 
+.ql-editor {
+	font-size: 28px;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before {
+	color: white;
+}
+
 .dark {
 	--bg: #0f172a;
 	--textColor: #ddd;
