@@ -9,19 +9,20 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
 model Account {
-  id                 String  @id @default(cuid()) @map("_id")
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  
-  access_token       String?  
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String? 
-  session_state      String?
+  id                String  @id @default(cuid()) @map("_id")
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -39,17 +40,54 @@ model Session {
 model User {
   id            String    @id @default(cuid()) @map("_id")
   name          String?
-  email         String?   @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Post          Post[]
+  Comment       Comment[]
 }
 
 model VerificationToken {
-  identifier String @id @map("_id")
+  identifier String   @id @map("_id")
   token      String   @unique
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Category {
+  id    String  @id @default(cuid()) @map("_id")
+  slug  String  @unique
+  title String
+  color String
+  img   String?
+  Posts Post[]
+}
+
+model Post {
+  id          String    @id @default(cuid()) @map("_id")
+  slug        String    @unique
+  title       String
+  description String
+  img         String?
+  views       Int       @default(0)
+  Category    Category? @relation(fields: [catSlug], references: [slug])
+  catSlug     String
+  user        User      @relation(fields: [userEmail], references: [email])
+  userEmail   String
+  Comment     Comment[]
+  createdAt   DateTime @default(now())
+}
+
+model Comment {
+  id String @id @default(cuid()) @map("_id")
+
+  description String
+  user        User   @relation(fields: [userEmail], references: [email])
+  userEmail   String
+  postSlug    String
+  post        Post     @relation(fields: [postSlug], references: [slug])
+  createdAt   DateTime @default(now())
 }

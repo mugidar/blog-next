@@ -3,101 +3,40 @@ import styles from './CategoryList.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const CategoryList = ({ withImage = true }) => {
+const getCats = async () => {
+	const res = await fetch('http://localhost:3000/api/categories', {
+		cache: process.env.NODE_ENV === 'development' ? 'no-cache' : 'force-cache'
+	})
+	if (!res.ok) return new Error('Smth went wrong')
+	const data = await res.json()
+	return data
+}
+
+const CategoryList = async ({ withImage = true }) => {
+	const categories = await getCats()
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.title}>Categories</h1>
 			<div className={styles.categories}>
-				<Link
-					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.style}`}
-				>
-					{withImage && (
-						<Image
-							className={styles.image}
-							src={'/style.png'}
-							width={32}
-							height={32}
-							alt="icon"
-						/>
-					)}
-					Style
-				</Link>
-				<Link
-					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.food}`}
-				>
-					{withImage && (
-						<Image
-							className={styles.image}
-							src={'/food.png'}
-							width={32}
-							height={32}
-							alt="icon"
-						/>
-					)}
-					Food
-				</Link>
-				<Link
-					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.culture}`}
-				>
-					{withImage && (
-						<Image
-							className={styles.image}
-							src={'/culture.png'}
-							width={32}
-							height={32}
-							alt="icon"
-						/>
-					)}
-					Culture
-				</Link>
-				<Link
-					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.style}`}
-				>
-					{withImage && (
-						<Image
-							className={styles.image}
-							src={'/travel.png'}
-							width={32}
-							height={32}
-							alt="icon"
-						/>
-					)}
-					Travel
-				</Link>
-				<Link
-					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.style}`}
-				>
-					{withImage && (
-						<Image
-							className={styles.image}
-							src={'/fashion.png'}
-							width={32}
-							height={32}
-							alt="icon"
-						/>
-					)}
-					Fashion
-				</Link>
-				<Link
-					href={'/blog?cat=style'}
-					className={`${styles.category} ${styles.style}`}
-				>
-					{withImage && (
-						<Image
-							className={styles.image}
-							src={'/coding.png'}
-							width={32}
-							height={32}
-							alt="icon"
-						/>
-					)}
-					Coding
-				</Link>
+				{categories.length > 0 &&
+					categories.map(category => (
+						<Link
+							key={category._id}
+							href={`/blog?cat=${category.slug}`}
+							className={`${styles.category} ${styles[category.color]}`}
+						>
+							{withImage && (
+								<Image
+									className={styles.image}
+									src={category.img ? category.img : ""}
+									width={32}
+									height={32}
+									alt="icon"
+								/>
+							)}
+							{category.title}
+						</Link>
+					))}
 			</div>
 		</div>
 	)

@@ -4,13 +4,15 @@ import React from 'react'
 import styles from './page.module.css'
 import CardList from '@/components/CardList/CardList'
 import Menu from '@/components/Menu/Menu'
-const page = () => {
+const page = ({searchParams}) => {
+	const page = Number(searchParams.page) || 1
+
 	return (
 		<div>
 			<Featured />
 			<CategoryList />
 			<div className={styles.container}>
-				<CardList />
+				<CardList page={page} />
 				<Menu />
 			</div>
 		</div>

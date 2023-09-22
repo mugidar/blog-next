@@ -1,26 +1,24 @@
 import React from 'react'
 import styles from './CardItem.module.css'
 import Image from 'next/image'
-const CardItem = () => {
+const CardItem = ({ title, catSlug, createdAt, description, img }) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.imgContainer}>
-				<Image src={'/p1.jpeg'} fill />
+				<Image src={img ? img : "/p1.png"} fill />
 			</div>
 			<div className={styles.textContainer}>
 				<span className={styles.postInfo}>
-					<strong className={styles.postDate}>11.02.2023</strong>
-					<h3 className={styles.postCategory}>CULTURE</h3>
+					<strong className={styles.postDate}>
+						{new Date(createdAt).toLocaleDateString()}
+					</strong>
+					<h3 className={styles.postCategory}>{catSlug}</h3>
 				</span>
 				<h1 className={styles.postTitle}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					{title}
 				</h1>
 				<p className={styles.postDescription}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-					aperiam fuga distinctio quas sint tempora aspernatur eligendi beatae
-					molestiae iure iusto repellat, ipsa alias corporis voluptatum quidem
-					eius aut dolorum accusantium. Suscipit dolores saepe ad
-					exercitationem. Cumque debitis reprehenderit voluptatum.
+					{description}
 				</p>
 				<button className={styles.button}>Read More</button>
 			</div>
