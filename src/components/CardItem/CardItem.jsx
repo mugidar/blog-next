@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './CardItem.module.css'
 import Image from 'next/image'
-const CardItem = ({ title, catSlug, createdAt, description, img }) => {
+import Link from 'next/link'
+const CardItem = ({ title, catSlug, createdAt, description, img, slug }) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.imgContainer}>
-				<Image src={img ? img : "/p1.png"} fill />
+				<Image src={img ? img : "/p1.png"} fill alt='' />
 			</div>
 			<div className={styles.textContainer}>
 				<span className={styles.postInfo}>
@@ -15,12 +16,12 @@ const CardItem = ({ title, catSlug, createdAt, description, img }) => {
 					<h3 className={styles.postCategory}>{catSlug}</h3>
 				</span>
 				<h1 className={styles.postTitle}>
-					{title}
+				<Link href={`/posts/${slug}`} className={styles.button}>{title}</Link>
 				</h1>
 				<p className={styles.postDescription}>
 					{description}
 				</p>
-				<button className={styles.button}>Read More</button>
+				<Link href={`/posts/${slug}`} className={styles.button}>Read More</Link>
 			</div>
 		</div>
 	)

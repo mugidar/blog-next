@@ -18,7 +18,7 @@ const CategoryList = async ({ withImage = true }) => {
 		<div className={styles.container}>
 			<h1 className={styles.title}>Categories</h1>
 			<div className={styles.categories}>
-				{categories.length > 0 &&
+				{categories?.length > 0 &&
 					categories.map(category => (
 						<Link
 							key={category._id}

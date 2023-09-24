@@ -49,6 +49,7 @@
 	font-size: 18px;
 }
 .button {
+	cursor: pointer;
 	font-weight: 600;
 	color: var(--textColor);
 	font-size: 16px;

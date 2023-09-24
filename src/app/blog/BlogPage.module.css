@@ -3,6 +3,7 @@
 }
 
 .title {
+    text-transform: capitalize;
     text-align: center;
     width: 100%;
     background-color: orange;
