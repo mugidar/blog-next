@@ -16,8 +16,23 @@ const fetcher = async (url) => {
 }
 
 const Comments = ({postSlug}) => {
-	const status = useSession()
-	const {data, isLoading} =useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
+	const {status} = useSession()
+	const {data,mutate, isLoading} =useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
+	const [description,setDescription] = useState("")
+
+
+const handleSubmit = async () => {
+	try {
+		await fetch("/api/comments", {
+			body: JSON.stringify({description, postSlug}), method: "POST"
+		})
+		mutate()
+		setDescription("")
+	} catch (error) {
+		throw new Error(error)
+	}
+}
+
 	return (
 		<div className={styles.container}>
 			<h1>Comments</h1>
@@ -26,9 +41,11 @@ const Comments = ({postSlug}) => {
 					<textarea
 						className={styles.textArea}
 						rows={3}
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
 						placeholder="Write your comment..."
 					/>
-					<button className={styles.button}>Comment</button>
+					<button onClick={() => handleSubmit()} className={styles.button}>Comment</button>
 				</div>
 			) : (
 				<h1>Login to write</h1>
