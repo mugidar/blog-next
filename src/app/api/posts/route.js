@@ -1,3 +1,4 @@
+import { getAuthSession } from '@/utils/authOptions'
 import prisma from '@/utils/connect'
 import { NextResponse } from 'next/server'
 
@@ -6,13 +7,13 @@ export const GET = async req => {
 	const page = searchParams.get('page')
 	const cat = searchParams.get('cat')
 	try {
-		const POSTS_PER_PAGE = 1
-	
+		const POSTS_PER_PAGE = 5
+
 		const query = {
 			take: POSTS_PER_PAGE,
 			skip: POSTS_PER_PAGE * (page - 1),
 			where: {
-				...(cat && {catSlug: cat})
+				...(cat && { catSlug: cat })
 			}
 		}
 		const [posts, count] = await prisma.$transaction([
@@ -33,27 +34,22 @@ export const GET = async req => {
 	}
 }
 
-export const POST = async (req,res) => {
+export const POST = async (req, res) => {
 	const session = await getAuthSession()
-	if(!session) {
-		return new NextResponse(JSON.stringify({ message: "Not authed" }), {
-			status: 401
-		})
-	}
+	if (!session) {
+		return new NextResponse(
+		  JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+		);
+	  }
+	
 	try {
 		const body = await req.json()
-		const post =  await prisma.post.create({
-			data: {
-				...body, 
-				userEmail: session.user.email
-			}
-		})
+		console.log(session.user)
+		const post = await prisma.post.create({
+			data: { ...body, userEmail: session.user.email },
+		  });
 
-
-
-		return new NextResponse(JSON.stringify(comment), {
-			status: 200
-		})
+		  return new NextResponse(JSON.stringify(post, { status: 200 }));
 	} catch (error) {
 		console.log(error)
 		return new NextResponse(JSON.stringify({ message: error }), {

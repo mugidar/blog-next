@@ -18,8 +18,8 @@ const CardItem = ({ title, catSlug, createdAt, description, img, slug }) => {
 				<h1 className={styles.postTitle}>
 				<Link href={`/posts/${slug}`} className={styles.button}>{title}</Link>
 				</h1>
-				<p className={styles.postDescription}>
-					{description}
+				<p className={styles.postDescription}  dangerouslySetInnerHTML={{__html:description}}>
+					
 				</p>
 				<Link href={`/posts/${slug}`} className={styles.button}>Read More</Link>
 			</div>

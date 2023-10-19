@@ -77,8 +77,9 @@ model Post {
   catSlug     String
   user        User      @relation(fields: [userEmail], references: [email])
   userEmail   String
-  Comment     Comment[]
+  Comment     Comment[] 
   createdAt   DateTime  @default(now())
+  
 }
 
 model Comment {
@@ -88,7 +89,7 @@ model Comment {
   userEmail   String
   user        User     @relation(fields: [userEmail], references: [email])
   postSlug    String
-  post        Post     @relation(fields: [postSlug], references: [slug])
+  post        Post     @relation(fields: [postSlug], references: [slug], onDelete: Cascade)
 
 
 }
