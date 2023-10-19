@@ -23,7 +23,7 @@ const CardList = async ({ page, cat }) => {
 		<div className={styles.container}>
 			<h1 className={styles.title}>Recent posts</h1>
 			<div className={styles.posts}>
-				{posts?.length > 0 && posts.map(post => <CardItem {...post} />)}
+				{posts?.length > 0 && posts.map(post => <CardItem key={post._id} {...post} />)}
 			</div>
 			<Pagination hasNext={hasNext} hasPrev={hasPrev} page={page} />
 		</div>
