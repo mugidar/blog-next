@@ -41,9 +41,10 @@
 	color: rgb(255, 126, 126);
 }
 .postTitle {
-
+	font-size: 36px;
 }
 .postDescription {
+	
 	font-weight: 500;
 	color: var(--softTextColor);
 	font-size: 18px;
@@ -57,4 +58,24 @@
 	border: 0;
 	border-bottom: 1px solid red;
 	width: max-content;
+}
+
+.postBottom {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 648px) {
+	.postDescription {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.postBottom > b {
+		font-size: 12px;
+	}
 }
