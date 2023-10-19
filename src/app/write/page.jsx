@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import styles from './Write.module.css'
 import Image from 'next/image'
-import ReactQuill from 'react-quill'
+
 import 'react-quill/dist/quill.bubble.css'
 import {
 	getStorage,
@@ -19,7 +19,7 @@ const Write = () => {
 	const [value, setValue] = useState('')
 	const [file, setFile] = useState(null)
 	const [media, setMedia] = useState('')
-	
+	const ReactQuill = dynamic(()=>import('react-quill'), {ssr:false})
 	const router = useRouter()
 
 	const storage = getStorage(app)
