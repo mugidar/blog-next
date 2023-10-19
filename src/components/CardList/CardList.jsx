@@ -5,7 +5,7 @@ import CardItem from '../CardItem/CardItem'
 
 const getPosts = async (page, cat) => {
 	const res = await fetch(
-		`http://localhost:3000/api/posts?page=${page}&cat=${cat || ''}`, {
+		`https://blog-next-nine-blush.vercel.app/api/posts?page=${page}&cat=${cat || ''}`, {
 			cache: "no-cache"
 		}
 	)

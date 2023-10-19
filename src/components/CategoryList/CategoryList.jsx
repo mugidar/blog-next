@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const getCats = async () => {
-	const res = await fetch('http://localhost:3000/api/categories', {
+	const res = await fetch('https://blog-next-nine-blush.vercel.app/api/categories', {
 		cache: process.env.NODE_ENV === 'development' ? 'no-cache' : 'force-cache'
 	})
 	if (!res.ok) return new Error('Smth went wrong')
@@ -28,7 +28,7 @@ const CategoryList = async ({ withImage = true }) => {
 							{withImage && (
 								<Image
 									className={styles.image}
-									src={category.img ? category.img : ""}
+									src={category.img ? category.img : ''}
 									width={32}
 									height={32}
 									alt="icon"

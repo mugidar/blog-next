@@ -5,7 +5,7 @@ import Menu from '@/components/Menu/Menu'
 import Comments from '@/components/Comments/Comments'
 
 const getPost = async slug => {
-	const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
+	const res = await fetch(`https://blog-next-nine-blush.vercel.app/api/posts/${slug}`, {
 		cache: 'no-cache'
 	})
 	if (!res.ok) return new Error('ERROR')
