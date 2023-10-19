@@ -8,6 +8,7 @@ import 'react-quill/dist/quill.bubble.css'
 const Write = () => {
 	const [open, setOpen] = useState(false)
 	const [value, setValue] = useState('')
+	const [file, setFile] = useState(null)
 
 	return (
 		<div className={styles.container}>
@@ -19,6 +20,12 @@ const Write = () => {
 					</button>
 					{open && (
 						<div className={styles.add}>
+							<input
+								type="file"
+								id="image"
+								onChange={(e = setFile(e.target.files[0]))}
+								style={{display: none}}
+							/>
 							<button className={styles.button}>
 								<Image src={'/image.png'} width={16} height={16} alt="+" />
 							</button>

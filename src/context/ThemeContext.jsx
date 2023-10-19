@@ -6,14 +6,15 @@ export const ThemeContext = createContext()
 const getFromLocalStorage = () => {
 	if (typeof window !== 'undefined') {
 		const value = localStorage.getItem('theme')
-		return value || 'dark'
+		return value
 	}
 }
 
 export const ThemeContextProvider = ({ children }) => {
 	const [theme, setTheme] = useState(() => {
-		return getFromLocalStorage()
+		return getFromLocalStorage() || "dark"
 	})
+	console.log(theme)
 
 	const toggle = () => {
 		setTheme(theme === 'light' ? 'dark' : 'light')
@@ -22,7 +23,7 @@ export const ThemeContextProvider = ({ children }) => {
 	useEffect(() => {
 		localStorage.setItem('theme', theme)
 	}, [theme])
-  
+
 	return (
 		<ThemeContext.Provider value={{ theme, toggle }}>
 			{children}
